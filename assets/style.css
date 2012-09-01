@@ -12,6 +12,11 @@ h1 {
 	margin-bottom: 0;
 }
 
+h2 {
+	font-weight: normal;
+	margin-top: 30px;
+}
+
 header a {
 	text-decoration: none;
 	font-size: 10pt;
@@ -46,26 +51,26 @@ strong.invalid {
 	color: red;
 }
 
-ul {
+#tests ul {
 	padding: 0;
 }
 
-li {
+#tests li {
 	list-style-type: none;
 	margin-bottom: 10px;
 }
 
-li:not(.pass):not(.fail) {
+#tests li:not(.pass):not(.fail) {
 	height: 19px;
 	overflow: hidden;
 }
 
-li.pass {
+#tests li.pass {
 	height: 19px;
 	overflow: hidden;
 	background-color: #9f9;
 }
 
-li.fail {
+#tests li.fail {
 	background-color: #f99;
 }
