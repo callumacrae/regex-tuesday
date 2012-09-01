@@ -16,10 +16,10 @@ replace.addEventListener('keyup', function () {
 var items = $$('#tests li');
 items = Array.prototype.slice.call(items);
 items.forEach(function (item) {
-	var html = item.innerHTML.split(' -&gt; ');
+	var text = item.innerText.split(' -> ');
 	
-	item.dataset.input = html[0];
-	item.dataset.output = html[1].split(/<br(?: \/)?>/)[0];
+	item.dataset.input = text[0];
+	item.dataset.output = text[1].split('\n')[0];
 });
 
 
@@ -49,15 +49,9 @@ function dealWithRegex(displayInvalid) {
 			var input = item.dataset.input,
 				output = item.dataset.output,
 				replaceWith = replace.value,
-				final;
+				final = input.replace(regex, replaceWith);
 
-			// Escape replaceWith
-			replaceWith = replaceWith.replace(/&/g, '&amp;')
-				.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-			final = input.replace(regex, replaceWith);
-			
-			$('span', item).innerHTML = final;
+			$('span', item).innerText = final;
 			if (final === output) {
 				item.className = 'pass';
 				passes++;
