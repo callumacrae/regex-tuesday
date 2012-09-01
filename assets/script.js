@@ -19,7 +19,9 @@ items.forEach(function (item) {
 	var text = item.innerText.split(' -> ');
 	
 	item.dataset.input = text[0];
-	item.dataset.output = text[1].split('\n')[0];
+	item.dataset.output = text[1];
+
+	item.innerHTML += '<br />Actual output: <span></span>';
 });
 
 
