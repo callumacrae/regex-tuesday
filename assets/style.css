@@ -1,0 +1,71 @@
+body {
+	font-family: georgia, serif;
+}
+
+header {
+	text-align: center;
+	margin: 30px;
+}
+
+h1 {
+	font-weight: normal;
+	margin-bottom: 0;
+}
+
+header a {
+	text-decoration: none;
+	font-size: 10pt;
+}
+header a:hover {
+	text-decoration: underline;
+}
+
+#content {
+	width: 800px;
+	margin: 0 auto;
+}
+
+#tests {
+	width: 700px;
+	margin: 50px auto;
+}
+
+#find, #replace {
+	border: 1px black solid;
+	width: 306px;
+	padding: 5px 10px;
+	font-size: 12pt;
+}
+
+#find {
+	margin-right: 40px;
+}
+
+strong.invalid {
+	display: none;
+	color: red;
+}
+
+ul {
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+	margin-bottom: 10px;
+}
+
+li:not(.pass):not(.fail) {
+	height: 19px;
+	overflow: hidden;
+}
+
+li.pass {
+	height: 19px;
+	overflow: hidden;
+	background-color: #9f9;
+}
+
+li.fail {
+	background-color: #f99;
+}
