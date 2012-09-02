@@ -8,9 +8,11 @@ find.addEventListener('blur', function () {
 	dealWithRegex(true);
 });
 
-replace.addEventListener('keyup', function () {
-	dealWithRegex(true);
-});
+if (replace) {
+	replace.addEventListener('keyup', function () {
+		dealWithRegex(true);
+	});
+}
 
 
 var items = $$('#tests li');
@@ -21,7 +23,9 @@ items.forEach(function (item) {
 	item.dataset.input = text[0];
 	item.dataset.output = text[1];
 
-	item.innerHTML += '<br />Actual output: <span></span>';
+	if (replace) {
+		item.innerHTML += '<br />Actual output: <span></span>';
+	}
 });
 
 
@@ -47,20 +51,34 @@ function dealWithRegex(displayInvalid) {
 		// We now know that the regex is valid
 		$('.invalid').style.display = 'none';
 
-		items.forEach(function (item) {
-			var input = item.dataset.input,
-				output = item.dataset.output,
-				replaceWith = replace.value,
-				final = input.replace(regex, replaceWith);
+		if (replace) {
+			items.forEach(function (item) {
+				var input = item.dataset.input,
+					output = item.dataset.output,
+					replaceWith = replace.value,
+					final = input.replace(regex, replaceWith);
 
-			$('span', item).innerText = final;
-			if (final === output) {
-				item.className = 'pass';
-				passes++;
-			} else {
-				item.className = 'fail';
-			}
-		});
+				$('span', item).innerText = final;
+				if (final === output) {
+					item.className = 'pass';
+					passes++;
+				} else {
+					item.className = 'fail';
+				}
+			});
+		} else {
+			items.forEach(function (item) {
+				var input = item.dataset.input,
+					match = item.dataset.output === 'match';
+
+				if (regex.test(input) === match) {
+					item.className = 'pass';
+					passes++;
+				} else {
+					item.className = 'fail';
+				}
+			});
+		}
 
 		$('#passes').innerHTML = items.length + ' tests, ' + passes + ' passes.';
 	} else if (displayInvalid) {

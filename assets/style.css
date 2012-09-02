@@ -60,6 +60,10 @@ strong.invalid {
 	margin-bottom: 10px;
 }
 
+#tests ul.match li {
+	margin-bottom: 0;
+}
+
 #tests li:not(.pass):not(.fail) {
 	height: 19px;
 	overflow: hidden;
