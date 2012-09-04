@@ -102,3 +102,7 @@ function unescape(text) {
 	return text.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
 		.replace(/&amp;/, '&');
 }
+
+window.onload = function() {
+	dealWithRegex(true);
+}
