@@ -18,8 +18,8 @@
 		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming for all test cases to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
 
 		<div id="tests">
-			<input type="text" id="find" placeholder="/regexp? here/i">
-			<input type="text" id="replace" placeholder="Replace with">
+			<input type="text" id="find" placeholder="/regexp? here/i" value="/(^|\W)([\w']+)(\s+)(\2)(?!\w)/gi">
+			<input type="text" id="replace" placeholder="Replace with" value="$1$2$3&lt;strong&gt;$4&lt;/strong&gt;">
 
 			<strong class="invalid">Invalid regex</strong>
 
