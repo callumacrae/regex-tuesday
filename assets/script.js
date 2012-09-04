@@ -3,22 +3,22 @@ var find = $('#find'),
 
 find.addEventListener('keyup', function () {
 	dealWithRegex(false);
-});
+}, true);
 find.addEventListener('blur', function () {
 	dealWithRegex(true);
-});
+}, true);
 
 if (replace) {
 	replace.addEventListener('keyup', function () {
 		dealWithRegex(true);
-	});
+	}, true);
 }
 
 
 var items = $$('#tests li');
 items = Array.prototype.slice.call(items);
 items.forEach(function (item) {
-	var text = item.innerText.split(' -> ');
+	var text = unescape(item.innerHTML).split(' -> ');
 	
 	item.dataset.input = text[0];
 	item.dataset.output = text[1];
@@ -58,7 +58,7 @@ function dealWithRegex(displayInvalid) {
 					replaceWith = replace.value,
 					final = input.replace(regex, replaceWith);
 
-				$('span', item).innerText = final;
+				$('span', item).innerHTML = escape(final);
 				if (final === output) {
 					item.className = 'pass';
 					passes++;
@@ -91,4 +91,14 @@ function $(selector, context) {
 }
 function $$(selector, context) {
 	return (context || document).querySelectorAll(selector);
+}
+
+function escape(text) {
+	return text.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;');
+}
+
+function unescape(text) {
+	return text.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+		.replace(/&amp;/, '&');
 }
