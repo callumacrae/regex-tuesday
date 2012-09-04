@@ -78,3 +78,9 @@ strong.invalid {
 #tests li.fail {
 	background-color: #f99;
 }
+
+footer {
+	margin-top: 100px;
+	text-align: center;
+	font-size: 10pt;
+}
