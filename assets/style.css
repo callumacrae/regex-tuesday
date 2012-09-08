@@ -170,7 +170,7 @@ dd + dd {
 	display: none;
 }
 
-dd.failed + dd {
+dd.showfail + dd {
 	display: block;
 }
 

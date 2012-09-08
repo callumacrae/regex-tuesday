@@ -3,11 +3,12 @@ var find = document.getElementById('find'),
 	passedCount = document.getElementById('passed-count'),
 	testElements = document.getElementById('tests').getElementsByTagName('dt'),
 	permalink = document.getElementById('permalink'),
-	cases = [];
+	cases = [],
+	element, i, urlParts;
 
 // Loop over the list of test cases and put them in an array
-for (var i = 0, count = testElements.length; i < count; i++) {
-	var element = testElements[i];
+for (i = 0; i < testElements.length; i++) {
+	element = testElements[i];
 	cases[i] = {
 		input: element.textContent,
 		output: element.nextSibling.textContent
@@ -15,7 +16,7 @@ for (var i = 0, count = testElements.length; i < count; i++) {
 
 	// Add the "it should've been X" element to each test case
 	element.parentNode.insertBefore(document.createElement('dd'), 
-										element.nextSibling.nextSibling);
+		element.nextSibling.nextSibling);
 };
 
 // For validating and live-testing of the regex
@@ -33,61 +34,67 @@ if (replace){
 }
 
 // Allow the URL to contain regex and replace values
-var urlParts = location.search.replace('?', '').split(/[\&\=]/);
-for (var i = 0, count = urlParts.length; i < count; i+=2){
-	if (urlParts[i] == 'find' && find)
-		find.value = decodeURIComponent(urlParts[i+1]);
-	if (urlParts[i] == 'replace' && replace)
-		replace.value = decodeURIComponent(urlParts[i+1]);
+urlParts = location.search.replace('?', '').split(/[\&\=]/);
+for (i = 0; i < urlParts.length; i += 2){
+	if (urlParts[i] == 'find' && find) {
+		find.value = decodeURIComponent(urlParts[i + 1]);
+	}
+	if (urlParts[i] == 'replace' && replace) {
+		replace.value = decodeURIComponent(urlParts[i + 1]);
+	}
 }
 
-if (find.value)
+if (find.value) {
 	validateRegex(true);
+}
 
 function validateRegex(warnUser){
 	var regex = find.value,
-		url = location.origin + location.pathname;
-	console.log(location);
+		url = location.origin + location.pathname,
+		passes = 0,
+		element, i, nextElement, output, test;
+
 	url += '?find=' + encodeURIComponent(find.value);
-	if (replace)
+	if (replace) {
 		url += '&replace=' + encodeURIComponent(replace.value);
+	}
 	permalink.setAttribute('href', url);
 
-	if (regex == ''){
+	if (regex === ''){
 		find.className = '';
 		return false;
 	}
 
-	// Validating regex using regex... That's meta.
+	// Validating regex using regex... that's meta.
 	if (regex = /^\/(.*)\/([a-z]*)$/.exec(regex)){
 		try {
 			regex = new RegExp(regex[1], regex[2]);
-		} catch (error){
-			if (warnUser)
+		} catch (error) {
+			if (warnUser) {
 				find.className = 'invalid';
+			}
 			return false;
 		}
 
 		// Valid regex!
 		find.className = '';
 
-		var passes = 0;
-		for (var i = 0, count = cases.length; i < count; i++){
-			var test = cases[i],
-				element = testElements[i],
-				nextElement = element.nextSibling;
-			if (replace){
-				var output = test.input.replace(regex, replace.value);
+		for (i = 0; i < cases.length; i++) {
+			test = cases[i];
+			element = testElements[i];
+			nextElement = element.nextSibling;
+
+			if (replace) {
+				output = test.input.replace(regex, replace.value);
 				element.nextSibling.nextSibling.textContent = output;
-				if (output == test.output){
+				if (output === test.output) {
 					nextElement.className = element.className = 'passed';
 					passes++;
 				} else {
-					nextElement.className = element.className = 'failed';
+					nextElement.className = element.className = 'failed showfail';
 				}
 			} else {
-				// Untested
-				if (regex.test(test.input).toString == test.output){
+				if (regex.test(test.input) === (test.output === 'match')) {
 					nextElement.className = element.className = 'passed';
 					passes++;
 				} else {
@@ -97,12 +104,12 @@ function validateRegex(warnUser){
 		}
 
 		// Let the user know how many tests they passed
-		passedCount.textContent = passes.toString();
+		passedCount.textContent = passes;
 
 		return true;
-	} else {
-		if (warnUser)
-			find.className = 'invalid';
-		return false;
+	} else if (warnUser) {
+		find.className = 'invalid';
 	}
+	
+	return false;
 }
