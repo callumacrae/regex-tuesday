@@ -4,77 +4,75 @@
 	<meta charset="utf-8">
 	<title>Regex Challenge - Week One</title>
 
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet'>
 	<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 	<header>
 		<h1>Regex Tuesday Challenge - Week One</h1>
-		<a class="viewall" href="./">View all Challenges</a>
+		<nav>
+			<a href="./">&laquo; View all Challenges</a>
+		</nav>
+		<div id='social'>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="callumacrae" data-hashtags="regextuesday">Tweet</a>
+			<div class="g-plusone" data-size="medium"></div>
+			<div class="fb-like" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" style="top: -4px"></div>
+			<div style='display: inline-block; position: relative; margin-left: 30px; top: 3px;'>
+				<script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+			</div>
+		</div>
 	</header>
 
-	<div id="content">
+	<section>
 		<p>This weeks Regex Tuesday challenge, the first challenge, is to make a regex which finds and highlights repeated words in a body of text. It is a fairly easy challenge, and future challenges will usually be trickier.</p>
 		<p>You should just wrap the repeated word in a <code>&lt;strong&gt;</code> element. For example, <code>this is is a test</code> should be turned into <code>this is &lt;strong&gt;<strong>is</strong>&lt;/strong&gt; a test</code>.</p>
-		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming for all test cases to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
+		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
 
-		<div id="tests">
+		<!--<p class='single-input'>-->
+		<p>
 			<input type="text" id="find" placeholder="/regexp? here/i">
 			<input type="text" id="replace" placeholder="Replace with">
+		</p>
 
-			<strong class="invalid">Invalid regex</strong>
-
-			<ul>
-				<li>This is a test -&gt; This is a test</li>
-				<li>This is is a test -&gt; This is &lt;strong&gt;is&lt;/strong&gt; a test</li>
-				<li>This test test is is -&gt; This test &lt;strong&gt;test&lt;/strong&gt; is &lt;strong&gt;is&lt;/strong&gt;</li>
-				<li>This test is a test -&gt; This test is a test</li>
-				<li>This this test is a test -&gt; This &lt;strong&gt;this&lt;/strong&gt; test is a test</li>
-				<li>cat dog dog cat dog -&gt; cat dog &lt;strong&gt;dog&lt;/strong&gt; cat dog</li>
-				<li>This test is a test tester -&gt; This test is a test tester</li>
-				<li>hello world hello world -&gt; hello world hello world</li>
-				<li>This nottest test is something -&gt; This nottest test is something</li>
-				<li>This is IS a test -&gt; This is &lt;strong&gt;IS&lt;/strong&gt; a test</li>
-				<li>&lt;Mack&gt; I'll I'll be be back back in in a a bit bit. -&gt; &lt;Mack&gt; I'll &lt;strong&gt;I'll&lt;/strong&gt; be &lt;strong&gt;be&lt;/strong&gt; back &lt;strong&gt;back&lt;/strong&gt; in &lt;strong&gt;in&lt;/strong&gt; a &lt;strong&gt;a&lt;/strong&gt; bit &lt;strong&gt;bit&lt;/strong&gt;.</li>
-			</ul>
-
-			<p id="passes"></p>
-		</div>
-	</div>
+		<h3>Test cases (<span id='passed-count'>0</span>/11) <a id='permalink' class='button' href='./challenge1.html'>Permalink</a></h3>
+		<dl id='tests'>
+			<dt>This is a test</dt><dd>This is a test</dd>
+			<dt>This is is a test</dt><dd>This is &lt;strong&gt;is&lt;/strong&gt; a test</dd>
+			<dt>This test test is is</dt><dd>This test &lt;strong&gt;test&lt;/strong&gt; is &lt;strong&gt;is&lt;/strong&gt;</dd>
+			<dt>This test is a test</dt><dd>This test is a test</dd>
+			<dt>This this test is a test</dt><dd>This &lt;strong&gt;this&lt;/strong&gt; test is a test</dd>
+			<dt>cat dog dog cat dog</dt><dd>cat dog &lt;strong&gt;dog&lt;/strong&gt; cat dog</dd>
+			<dt>This test is a test tester</dt><dd>This test is a test tester</dd>
+			<dt>hello world hello world</dt><dd>hello world hello world</dd>
+			<dt>This nottest test is something</dt><dd>This nottest test is something</dd>
+			<dt>This is IS a test</dt><dd>This is &lt;strong&gt;IS&lt;/strong&gt; a test</dd>
+			<dt>&lt;Mack&gt; I'll I'll be be back back in in a a bit bit.</dt><dd>&lt;Mack&gt; I'll &lt;strong&gt;I'll&lt;/strong&gt; be &lt;strong&gt;be&lt;/strong&gt; back &lt;strong&gt;back&lt;/strong&gt; in &lt;strong&gt;in&lt;/strong&gt; a &lt;strong&gt;a&lt;/strong&gt; bit &lt;strong&gt;bit&lt;/strong&gt;.</dd>
+		</dl>
+	</section>
 
 	<footer>
-		<a href="https://twitter.com/share" class="twitter-share-button" data-via="callumacrae" data-hashtags="regextuesday">Tweet</a>
-		<div class="g-plusone" data-size="medium"></div>
-
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-		<script type="text/javascript">
-			window.___gcfg = {lang: 'en-GB'};
-
-			(function() {
-				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-				po.src = 'https://apis.google.com/js/plusone.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-			})();
-		</script>
-		
-		<div class="fb-like" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" style="top: -3px"></div>
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=251120905643";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-		
-		<div style="margin-top: 10px">
-			<script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
-		</div>
-
-		<p>Public domain. Site by <a href="http://lynx.io/">Callum Macrae</a></p>
+		Public domain. Site by <a href="http://lynx.io/">Callum Macrae</a>
 	</footer>
 
-	<script src="assets/script.js"></script>
+	<script src="assets/challenge.js"></script>
+	<!-- Social media -->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script type="text/javascript">
+		window.___gcfg = {lang: 'en-GB'};
 
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=251120905643";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 	<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-10431066-8']);
