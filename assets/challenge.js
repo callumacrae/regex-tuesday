@@ -48,7 +48,7 @@ if (find.value) {
 	validateRegex(true);
 }
 
-function validateRegex(warnUser){
+function validateRegex(warnUser) {
 	var regex = find.value,
 		url = location.origin + location.pathname,
 		passes = 0,
@@ -60,13 +60,13 @@ function validateRegex(warnUser){
 	}
 	permalink.setAttribute('href', url);
 
-	if (regex === ''){
+	if (regex === '') {
 		find.className = '';
 		return false;
 	}
 
 	// Validating regex using regex... that's meta.
-	if (regex = /^\/(.*)\/([a-z]*)$/.exec(regex)){
+	if (regex = /^\/(.*)\/([a-z]*)$/.exec(regex)) {
 		try {
 			regex = new RegExp(regex[1], regex[2]);
 		} catch (error) {
