@@ -52,7 +52,7 @@ function validateRegex(warnUser) {
 	var regex = find.value,
 		url = location.origin + location.pathname,
 		passes = 0,
-		element, i, nextElement, output, test;
+		element, i, newClass, output, test;
 
 	url += '?find=' + encodeURIComponent(find.value);
 	if (replace) {
@@ -82,25 +82,26 @@ function validateRegex(warnUser) {
 		for (i = 0; i < cases.length; i++) {
 			test = cases[i];
 			element = testElements[i];
-			nextElement = element.nextSibling;
 
 			if (replace) {
 				output = test.input.replace(regex, replace.value);
 				element.nextSibling.nextSibling.textContent = output;
 				if (output === test.output) {
-					nextElement.className = element.className = 'passed';
+					newClass = 'passed';
 					passes++;
 				} else {
-					nextElement.className = element.className = 'failed showfail';
+					newClass = 'failed showfail';
 				}
 			} else {
 				if (regex.test(test.input) === (test.output === 'match')) {
-					nextElement.className = element.className = 'passed';
+					newClass = 'passed';
 					passes++;
 				} else {
-					nextElement.className = element.className = 'failed';
+					newClass = 'failed';
 				}
 			}
+			
+			element.nextSibling.className = element.className = newClass;
 		}
 
 		// Let the user know how many tests they passed
