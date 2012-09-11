@@ -105,7 +105,7 @@ section h3 {
 	border-right: 1px solid #EDEDED;
 }
 
-input, dt, dd {
+input, dt, dd, textarea {
 	padding: 10px;
 	margin: 0 8px;
 	width: 260px;
@@ -116,15 +116,15 @@ input, dt, dd {
 	font-family: monospace;
 }
 
-.single-input input {
+.single-input input, textarea {
 	width: 560px;
 }
 
-input:focus {
+input:focus, textarea:focus {
 	border-color: #457AA8;
 }
 
-input.invalid {
+input.invalid, textarea.invalid {
 	border-color: #D14B4B;
 }
 
