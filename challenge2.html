@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Regex Challenge - Week Two</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet'>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+	<header>
+		<h1>Regex Tuesday Challenge - Week Two</h1>
+		
+		<nav>
+			<a href="./">&laquo; View all Challenges</a>
+		</nav>
+			
+		<div id='social'>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="callumacrae" data-hashtags="regextuesday">Tweet</a>
+			<div class="g-plusone" data-size="medium"></div>
+			<div class="fb-like" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" style="top: -4px"></div>
+			<div style='display: inline-block; position: relative; margin-left: 30px; top: 3px;'>
+				<script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<p>The second Regex Tuesday challenge is slightly trickier challenge. Unlike the last challenge, it is to match something, not to replace something.</p>
+		<p>In this challenge, you are aiming to match a grayscale CSS colour. It should be able to match anything but the colour names (eg "red"). See the test cases below for examples.</p>
+		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
+		<p>If you're finding this challenge trickier, you can simplify it - for example, to match all the hex colours (eg "<code>#000</code>"), and then move onto the rgb colours. hsl can be a bit trickier - do as much or as little as you can. Good luck!</p>
+
+		<p class='single-input'>
+			<input type="text" id="find" placeholder="/regexp? here/i">
+		</p>
+
+		<h3>Test cases (<span id='passed-count'>0</span>/40) <a id='permalink' class='button' href='./challenge1.html'>Permalink</a></h3>
+		<dl id='tests'>
+			<dt>#000</dt><dd>match</dd>
+			<dt>#aaa</dt><dd>match</dd>
+			<dt>#eEe</dt><dd>match</dd>
+			<dt>#111111</dt><dd>match</dd>
+			<dt>#6F6F6F</dt><dd>match</dd>
+			<dt>#efEfEF</dt><dd>match</dd>
+			<dt>rgb(0, 0, 0)</dt><dd>match</dd>
+			<dt>rgb(15,15,15)</dt><dd>match</dd>
+			<dt>rgb(2.5, 2.5,2.5)</dt><dd>match</dd>
+			<dt>rgb(1, 01, 000001)</dt><dd>match</dd>
+			<dt>rgb(20%, 20%,20%)</dt><dd>match</dd>
+			<dt>rgba(4,4,4,0.8)</dt><dd>match</dd>
+			<dt>rgba(4,4,  4,1 )</dt><dd>match</dd>
+			<dt>rgba(3,3,3,0.12536)</dt><dd>match</dd>
+			<dt>rgba(10%,10%,10%,5%)</dt><dd>match</dd>
+			<dt>hsl(20,0%,  50%)</dt><dd>match</dd>
+			<dt>hsl(0, 10%, 100%)</dt><dd>match</dd>
+			<dt>hsl(0.5, 10.5%, 0%)</dt><dd>match</dd>
+			<dt>hsl(5, 5%, 0%)</dt><dd>match</dd>
+			<dt>hsla(20, 0%, 50%)</dt><dd>match</dd>
+			<dt>hsla(0, 0%, 0%, 0.25)</dt><dd>match</dd>
+
+			<dt>#ef4</dt><dd>no match</dd>
+			<dt>#eEf</dt><dd>no match</dd>
+			<dt>#11111e</dt><dd>no match</dd>
+			<dt>#123456</dt><dd>no match</dd>
+			<dt>rgb(2, 4, 7)</dt><dd>no match</dd>
+			<dt>rgb(10, 10,100)</dt><dd>no match</dd>
+			<dt>rgb(1.5%, 1.5%, 1.6%)</dt><dd>no match</dd>
+			<dt>rgba(1, 01, 0010, 0.5)</dt><dd>no match</dd>
+			<dt>hsl(20, 20%, 20%)</dt><dd>no match</dd>
+			<dt>hsl(0, 1%, 01%)</dt><dd>no match</dd>
+			<dt>hsla(0, 10%, 50%, 0.5)</dt><dd>no match</dd>
+
+			<dt>#11111</dt><dd>no match</dd>
+			<dt>#000000000</dt><dd>no match</dd>
+			<dt>rbg (1, 1, 1)</dt><dd>no match</dd>
+			<dt>rgb(10, 10, 10, 10)</dt><dd>no match</dd>
+			<dt>rbg(257, 257, 257)</dt><dd>no match</dd>
+			<dt>rgb(10%, 10, 10)</dt><dd>no match</dd>
+			<dt>hsl (20,0%,  50%)</dt><dd>no match</dd>
+			<dt>argb(1,1,1)</dt><dd>no match</dd>
+		</dl>
+	</section>
+
+	<footer>
+		Public domain. Site by <a href="http://lynx.io/">Callum Macrae</a>
+	</footer>
+
+	<script src="assets/challenge.js"></script>
+	<!-- Social media -->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script type="text/javascript">
+		window.___gcfg = {lang: 'en-GB'};
+
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=251120905643";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-10431066-8']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</body>
+</html>
