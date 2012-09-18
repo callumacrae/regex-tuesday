@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Regex Challenge - Week Three</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet'>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+	<header>
+		<h1>Regex Tuesday Challenge - Week Three</h1>
+		
+		<nav>
+			<a href="./">&laquo; View all Challenges</a>
+		</nav>
+			
+		<div id='social'>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="callumacrae" data-hashtags="regextuesday">Tweet</a>
+			<div class="g-plusone" data-size="medium"></div>
+			<div class="fb-like" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" style="top: -4px"></div>
+			<div style='display: inline-block; position: relative; margin-left: 30px; top: 3px;'>
+				<script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<p>The third regex tuesday challenge is to match dates in <code>YYYY/MM/DD HH:MM(:SS)</code> format. <code>YYYY</code> should be a year between 1000 and 2012, and everything else should be a valid month, date, hour, minute and second. The seconds should be optional. Don't worry about leap years, and assume that all months have 30 days.</p>
+		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
+
+		<p class='single-input'>
+			<textarea id="find" placeholder="/regexp? here/i"></textarea>
+		</p>
+
+		<h3>Test cases (<span id='passed-count'>0</span>/19) <a id='permalink' class='button' href='./challenge1.html'>Permalink</a></h3>
+		<dl id='tests'>
+			<dt>2012/09/18 12:10</dt><dd>match</dd>
+			<dt>2001/09/30 23:59:11</dt><dd>match</dd>
+			<dt>1995/12/01 12:12:12</dt><dd>match</dd>
+			<dt>1001/01/07 14:27</dt><dd>match</dd>
+			<dt>2010/10/20 10:10</dt><dd>match</dd>
+			<dt>2000/01/01 01:01:01</dt><dd>match</dd>
+			<dt>2007/07/22 22:34:59</dt><dd>match</dd>
+			<dt>2010/05/05 00:00:00</dt><dd>match</dd>
+
+			<dt>2012/9/18 23:40</dt><dd>no match</dd>
+			<dt>2013/09/09 09:09</dt><dd>no match</dd>
+			<dt>2012/00/01 01:49:59</dt><dd>no match</dd>
+			<dt>2012/13/25 22:17:00</dt><dd>no match</dd>
+			<dt>1994/11/00 12:12</dt><dd>no match</dd>
+			<dt>2012/12/4 12:12</dt><dd>no match</dd>
+			<dt>2009/11/11 24:00:00</dt><dd>no match</dd>
+			<dt>2012/06/24 13:60</dt><dd>no match</dd>
+			<dt>2002/10/10 14:59:60</dt><dd>no match</dd>
+			<dt>a2011/11/11 11:11:11</dt><dd>no match</dd>
+			<dt>2005/05/05 05:05:05d</dt><dd>no match</dd>
+		</dl>
+	</section>
+
+	<footer>
+		Public domain. Site by <a href="http://lynx.io/">Callum Macrae</a>
+	</footer>
+
+	<script src="assets/challenge.js"></script>
+	<!-- Social media -->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script type="text/javascript">
+		window.___gcfg = {lang: 'en-GB'};
+
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=251120905643";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-10431066-8']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</body>
+</html>
