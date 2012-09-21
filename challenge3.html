@@ -2,14 +2,14 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Regex Challenge - Week Two</title>
+	<title>Regex Challenge - Week Three</title>
 
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet'>
 	<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 	<header>
-		<h1>Regex Tuesday Challenge - Week Two</h1>
+		<h1>Regex Tuesday Challenge - Week Three</h1>
 		
 		<nav>
 			<a href="./">&laquo; View all Challenges</a>
@@ -26,59 +26,35 @@
 	</header>
 
 	<section>
-		<p>The second Regex Tuesday challenge is slightly trickier challenge. Unlike the last challenge, it is to match something, not to replace something.</p>
-		<p>In this challenge, you are aiming to match a grayscale CSS colour. It should be able to match anything but the colour names (eg "red"). See the test cases below for examples.</p>
+		<p>The third regex tuesday challenge is to match dates in <code>YYYY/MM/DD HH:MM(:SS)</code> format. <code>YYYY</code> should be a year between 1000 and 2012, and everything else should be a valid month, date, hour, minute and second. The seconds should be optional. Don't worry about leap years, and assume that all months have 30 days.</p>
 		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
-		<p>If you're finding this challenge too tricky, you can simplify it - for example, to match all the hex colours (eg "<code>#000</code>"), and then move onto the rgb colours. hsl can be a bit trickier - do as much or as little as you can. For an explanation of the various colour syntaxes available, check out <a href="http://lynx.io/article/colors-in-css">this article</a>. Good luck!</p>
 
 		<p class='single-input'>
 			<textarea id="find" placeholder="/regexp? here/i"></textarea>
 		</p>
 
-		<h3>Test cases (<span id='passed-count'>0</span>/40) <a id='permalink' class='button' href='./challenge1.html'>Permalink</a></h3>
+		<h3>Test cases (<span id='passed-count'>0</span>/19) <a id='permalink' class='button' href='./challenge1.html'>Permalink</a></h3>
 		<dl id='tests'>
-			<dt>#000</dt><dd>match</dd>
-			<dt>#aaa</dt><dd>match</dd>
-			<dt>#eEe</dt><dd>match</dd>
-			<dt>#111111</dt><dd>match</dd>
-			<dt>#6F6F6F</dt><dd>match</dd>
-			<dt>#efEfEF</dt><dd>match</dd>
-			<dt>rgb(0, 0, 0)</dt><dd>match</dd>
-			<dt>rgb(15,15,15)</dt><dd>match</dd>
-			<dt>rgb(2.5, 2.5,2.5)</dt><dd>match</dd>
-			<dt>rgb(1, 01, 000001)</dt><dd>match</dd>
-			<dt>rgb(20%, 20%,20%)</dt><dd>match</dd>
-			<dt>rgba(4,4,4,0.8)</dt><dd>match</dd>
-			<dt>rgba(4,4,  4,1 )</dt><dd>match</dd>
-			<dt>rgba(3,3,3,0.12536)</dt><dd>match</dd>
-			<dt>rgba(10%,10%,10%,5%)</dt><dd>match</dd>
-			<dt>hsl(20,0%,  50%)</dt><dd>match</dd>
-			<dt>hsl(0, 10%, 100%)</dt><dd>match</dd>
-			<dt>hsl(0.5, 10.5%, 0%)</dt><dd>match</dd>
-			<dt>hsl(5, 5%, 0%)</dt><dd>match</dd>
-			<dt>hsla(20, 0%, 50%, 0.88)</dt><dd>match</dd>
-			<dt>hsla(0, 0%, 0%, 0.25)</dt><dd>match</dd>
+			<dt>2012/09/18 12:10</dt><dd>match</dd>
+			<dt>2001/09/30 23:59:11</dt><dd>match</dd>
+			<dt>1995/12/01 12:12:12</dt><dd>match</dd>
+			<dt>1001/01/07 14:27</dt><dd>match</dd>
+			<dt>2010/10/20 10:10</dt><dd>match</dd>
+			<dt>2000/01/01 01:01:01</dt><dd>match</dd>
+			<dt>2007/07/22 22:34:59</dt><dd>match</dd>
+			<dt>2010/05/05 00:00:00</dt><dd>match</dd>
 
-			<dt>#ef4</dt><dd>no match</dd>
-			<dt>#eEf</dt><dd>no match</dd>
-			<dt>#11111e</dt><dd>no match</dd>
-			<dt>#123456</dt><dd>no match</dd>
-			<dt>rgb(2, 4, 7)</dt><dd>no match</dd>
-			<dt>rgb(10, 10,100)</dt><dd>no match</dd>
-			<dt>rgb(1.5%, 1.5%, 1.6%)</dt><dd>no match</dd>
-			<dt>rgba(1, 01, 0010, 0.5)</dt><dd>no match</dd>
-			<dt>hsl(20, 20%, 20%)</dt><dd>no match</dd>
-			<dt>hsl(0, 1%, 01%)</dt><dd>no match</dd>
-			<dt>hsla(0, 10%, 50%, 0.5)</dt><dd>no match</dd>
-
-			<dt>#11111</dt><dd>no match</dd>
-			<dt>#000000000</dt><dd>no match</dd>
-			<dt>rbg (1, 1, 1)</dt><dd>no match</dd>
-			<dt>rgb(10, 10, 10, 10)</dt><dd>no match</dd>
-			<dt>rbg(257, 257, 257)</dt><dd>no match</dd>
-			<dt>rgb(10%, 10, 10)</dt><dd>no match</dd>
-			<dt>hsl (20,0%,  50%)</dt><dd>no match</dd>
-			<dt>argb(1,1,1)</dt><dd>no match</dd>
+			<dt>2012/9/18 23:40</dt><dd>no match</dd>
+			<dt>2013/09/09 09:09</dt><dd>no match</dd>
+			<dt>2012/00/01 01:49:59</dt><dd>no match</dd>
+			<dt>2012/13/25 22:17:00</dt><dd>no match</dd>
+			<dt>1994/11/00 12:12</dt><dd>no match</dd>
+			<dt>2012/12/4 12:12</dt><dd>no match</dd>
+			<dt>2009/11/11 24:00:00</dt><dd>no match</dd>
+			<dt>2012/06/24 13:60</dt><dd>no match</dd>
+			<dt>2002/10/10 14:59:60</dt><dd>no match</dd>
+			<dt>a2011/11/11 11:11:11</dt><dd>no match</dd>
+			<dt>2005/05/05 05:05:05d</dt><dd>no match</dd>
 		</dl>
 	</section>
 
