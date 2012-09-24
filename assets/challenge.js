@@ -68,6 +68,11 @@ function validateRegex(warnUser) {
 	// Validating regex using regex... that's meta.
 	if (regex = /^\/(.*)\/([a-z]*)$/.exec(regex)) {
 		try {
+			if (regex[2].indexOf('x') !== -1) {
+				regex[1] = regex[1].replace(/([^\\]|^)\s/g, '$1');
+				regex[2] = regex[2].replace('x', '');
+			}
+
 			regex = new RegExp(regex[1], regex[2]);
 		} catch (error) {
 			if (warnUser) {
