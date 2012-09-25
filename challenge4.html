@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Regex Challenge - Week Four</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet'>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+	<header>
+		<h1>Regex Tuesday Challenge - Week Four</h1>
+		<nav>
+			<a href="./">&laquo; View all Challenges</a>
+		</nav>
+		<div id='social'>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="callumacrae" data-hashtags="regextuesday">Tweet</a>
+			<div class="g-plusone" data-size="medium"></div>
+			<div class="fb-like" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" style="top: -4px"></div>
+			<div style='display: inline-block; position: relative; margin-left: 30px; top: 3px;'>
+				<script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<p>This weeks Regex Tuesday Challenge is to write part of a MarkDown parser - turn italic MarkDown (<code>*this is italic*</code>) into HTML italic: <code>&lt;em&gt;this is italic&lt;/em&gt;</code>. It should not, however, match bold text - text surrounded by multiple asterisks.</p>
+		<p>This is a somewhat unrealistic challenge - in real life, you wouldn't have to make sure that it isn't bold, as you would have already parsed the bold text.</p>
+		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
+
+		<p>
+			<input type="text" id="find" placeholder="/regexp? here/i">
+			<input type="text" id="replace" placeholder="Replace with">
+		</p>
+
+		<h3>Test cases (<span id='passed-count'>0</span>/11) <a id='permalink' class='button' href='./challenge4.html'>Permalink</a></h3>
+		<dl id='tests'>
+			<dt>This text is not italic.</dt><dd>This text is not italic.</dd>
+			<dt>*This text is italic.*</dt><dd>&lt;em&gt;This text is italic.&lt;/em&gt;</dd>
+			<dt>This text is *partially* italic</dt><dd>This text is &lt;em&gt;partially&lt;/em&gt; italic</dd>
+			<dt>This text has *two* *italic* bits</dt><dd>This text has &lt;em&gt;two&lt;/em&gt; &lt;em&gt;italic&lt;/em&gt; bits</dd>
+			<dt>**bold text (not italic)**</dt><dd>**bold text (not italic)**</dd>
+			<dt>**bold text with *italic* **</dt><dd>**bold text with &lt;em&gt;italic&lt;/em&gt; **</dd>
+			<dt>**part bold,** *part italic*</dt><dd>**part bold,** &lt;em&gt;part italic&lt;/em&gt;</dd>
+			<dt>*italic text **with bold** *</dt><dd>&lt;em&gt;italic text **with bold** &lt;/em&gt;</dd>
+			<dt>*italic* **bold** *italic* **bold**</dt><dd>&lt;em&gt;italic&lt;/em&gt; **bold** &lt;em&gt;italic&lt;/em&gt; **bold**</dd>
+			<dt>*invalid markdown (do not parse)**</dt><dd>*invalid markdown (do not parse)**</dd>
+			<dt>random *asterisk</dt><dd>random *asterisk</dd>
+		</dl>
+	</section>
+
+	<footer>
+		Public domain. Site by <a href="http://lynx.io/">Callum Macrae</a>
+	</footer>
+
+	<script src="assets/challenge.js"></script>
+	<!-- Social media -->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script type="text/javascript">
+		window.___gcfg = {lang: 'en-GB'};
+
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=251120905643";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-10431066-8']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</body>
+</html>
