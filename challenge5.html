@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Regex Challenge - Week Five</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet'>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+	<header>
+		<h1>Regex Tuesday Challenge - Week Five</h1>
+		
+		<nav>
+			<a href="./">&laquo; View all Challenges</a>
+		</nav>
+			
+		<div id='social'>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="callumacrae" data-hashtags="regextuesday">Tweet</a>
+			<div class="g-plusone" data-size="medium"></div>
+			<div class="fb-like" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" style="top: -4px"></div>
+			<div style='display: inline-block; position: relative; margin-left: 30px; top: 3px;'>
+				<script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<p>The fifth Regex Tuesday challenge is to write a regular expressions which matches correctly formatted (with correct thousand seperators and decimal places). It should be able to match both main number syntaxes (10,000,000.45 and 10 000 000,45), and should not match invalid numbers such as 123.456.789.</p>
+		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
+
+		<p class='single-input'>
+			<textarea id="find" placeholder="/regexp? here/i"></textarea>
+		</p>
+
+		<h3>Test cases (<span id='passed-count'>0</span>/31) <a id='permalink' class='button' href='./challenge1.html'>Permalink</a></h3>
+		<dl id='tests'>
+			<dt>124</dt><dd>match</dd>
+			<dt>1,024</dt><dd>match</dd>
+			<dt>2,000,204</dt><dd>match</dd>
+			<dt>3,000.6</dt><dd>match</dd>
+			<dt>8,205,500.4672</dt><dd>match</dd>
+			<dt>0.5</dt><dd>match</dd>
+			<dt>36,000.57</dt><dd>match</dd>
+			<dt>100,000</dt><dd>match</dd>
+			<dt>5</dt><dd>match</dd>
+			<dt>46</dt><dd>match</dd>
+			<dt>10.444444444444</dt><dd>match</dd>
+
+			<dt>1 024</dt><dd>match</dd>
+			<dt>9 999 352</dt><dd>match</dd>
+			<dt>10,19836</dt><dd>match</dd>
+			<dt>30 000,7302</dt><dd>match</dd>
+			<dt>0,5</dt><dd>match</dd>
+			<dt>47 372</dt><dd>match</dd>
+
+			<dt>.5</dt><dd>no match</dd>
+			<dt>1025</dt><dd>no match (no seperator)</dd>
+			<dt>1,5826,000</dt><dd>no match</dd>
+			<dt>,046</dt><dd>no match</dd>
+			<dt>100.</dt><dd>no match</dd>
+			<dt>2.2.2</dt><dd>no match</dd>
+			<dt>10,</dt><dd>no match</dd>
+			<dt>10,.5</dt><dd>no match</dd>
+
+			<dt> 507</dt><dd>no match</dd>
+			<dt>507 </dt><dd>no match</dd>
+			<dt>34 34</dt><dd>no match</dd>
+			<dt>3692 38</dt><dd>no match</dd>
+			<dt>36 047.</dt><dd>no match</dd>
+			<dt>47 .7</dt><dd>no match</dd>
+		</dl>
+	</section>
+
+	<footer>
+		Public domain. Site by <a href="http://lynx.io/">Callum Macrae</a>
+	</footer>
+
+	<script src="assets/challenge.js"></script>
+	<!-- Social media -->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script type="text/javascript">
+		window.___gcfg = {lang: 'en-GB'};
+
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=251120905643";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-10431066-8']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</body>
+</html>
