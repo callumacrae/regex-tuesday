@@ -26,7 +26,7 @@
 	</header>
 
 	<section>
-		<p>Today's Regex Tuesday challenge, the sixth challenge, is to match IPv4 addresses in the first four syntaxes (dotted decimal, dotted hexadecimal, dotted octal and hexadecimal) specified on <a href="https://en.wikipedia.org/wiki/IPv4#Address_representations">Wikipedia</a>. More test cases will be added to this challenge later.</p>
+		<p>Today's Regex Tuesday challenge, the sixth challenge, is to match IPv4 addresses in the syntaxes (dotted decimal, dotted hexadecimal, dotted octal, hexadecimal, decimal and octal) specified on <a href="https://en.wikipedia.org/wiki/IPv4#Address_representations">Wikipedia</a>. More test cases will be added to this challenge later.</p>
 		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
 
 		<p class='single-input'>
@@ -56,6 +56,18 @@
 			<dt>0xFF12F11F</dt><dd>match</dd>
 			<dt>0x11223344</dt><dd>match</dd>
 
+			<dt>3221226219</dt><dd>match</dd>
+			<dt>2130706433</dt><dd>match</dd>
+			<dt>287454020</dt><dd>match</dd>
+			<dt>4279431455</dt><dd>match</dd>
+			<dt>4294967295</dt><dd>match</dd>
+
+			<dt>030000001353</dt><dd>match</dd>
+			<dt>030000001354</dt><dd>match</dd>
+			<dt>037704570437</dt><dd>match</dd>
+			<dt>02110431504</dt><dd>match</dd>
+			<dt>037777777777</dt><dd>match</dd>
+
 			<dt>0300.19.0.2</dt><dd>match</dd>
 			<dt>99.0377.4.0002</dt><dd>match</dd>
 			<dt>0xFF.255.0377.0x12</dt><dd>match</dd>
@@ -73,6 +85,9 @@
 			<dt>100.100.100.100</dt><dd>no match</dd>
 			<dt>256.100.100.100.100</dt><dd>no match</dd>
 			<dt>100.100.100.100.0x40</dt><dd>no match</dd>
+			<dt>4294967296</dt><dd>no match (too big)</dd>
+			<dt>037777777778</dt><dd>no match (too big)</dd>
+			<dt>011377000000000000008</dt><dd>no match</dd>
 		</dl>
 	</section>
 
