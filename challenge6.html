@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Regex Challenge - Week Six</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet'>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+	<header>
+		<h1>Regex Tuesday Challenge - Week Six</h1>
+		
+		<nav>
+			<a href="./">&laquo; View all Challenges</a>
+		</nav>
+			
+		<div id='social'>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="callumacrae" data-hashtags="regextuesday">Tweet</a>
+			<div class="g-plusone" data-size="medium"></div>
+			<div class="fb-like" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" style="top: -4px"></div>
+			<div style='display: inline-block; position: relative; margin-left: 30px; top: 3px;'>
+				<script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<p>Today's Regex Tuesday challenge, the sixth challenge, is to match IPv4 addresses in the first four syntaxes (dotted decimal, dotted hexadecimal, dotted octal and hexadecimal) specified on <a href="https://en.wikipedia.org/wiki/IPv4#Address_representations">Wikipedia</a>. More test cases will be added to this challenge later.</p>
+		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
+
+		<p class='single-input'>
+			<textarea id="find" placeholder="/regexp? here/i"></textarea>
+		</p>
+
+		<h3>Test cases (<span id='passed-count'>0</span>/31) <a id='permalink' class='button' href='./challenge1.html'>Permalink</a></h3>
+		<dl id='tests'>
+			<dt>192.0.2.235</dt><dd>match</dd>
+			<dt>99.198.122.146</dt><dd>match</dd>
+			<dt>18.101.25.153</dt><dd>match</dd>
+			<dt>23.71.254.72</dt><dd>match</dd>
+			<dt>100.100.100</dt><dd>match</dd>
+			<dt>173.194.34.134</dt><dd>match</dd>
+			<dt>212.58.241.131</dt><dd>match</dd>
+			<dt>46.51.197.88</dt><dd>match</dd>
+
+			<dt>0xC0.0x00.0x02.0xEB</dt><dd>match</dd>
+			<dt>0xFF.0x12.0xF1.0x1F</dt><dd>match</dd>
+			<dt>0x11.0x22.0x33.0x44</dt><dd>match</dd>
+
+			<dt>0300.0000.0002.0353</dt><dd>match</dd>
+			<dt>0377.0377.0377.0377</dt><dd>match</dd>
+			<dt>0100.0100.0100.0100</dt><dd>match</dd>
+
+			<dt>0xC00002EC</dt><dd>match</dd>
+			<dt>0xFF12F11F</dt><dd>match</dd>
+			<dt>0x11223344</dt><dd>match</dd>
+
+			<dt>256.256.256.256</dt><dd>no match</dd>
+			<dt>0x100.0x11.0x11.0x11</dt><dd>no match</dd>
+			<dt>0x11.0x100.0x11.0x11</dt><dd>no match</dd>
+			<dt>0xx20.0x20.0x20.0x20</dt><dd>no match</dd>
+			<dt>0180.0100.0100.0100</dt><dd>no match</dd>
+			<dt>0100.0100.0109.0100</dt><dd>no match</dd>
+			<dt>0x100111111</dt><dd>no match</dd>
+			<dt>0x111001111</dt><dd>no match</dd>
+		</dl>
+	</section>
+
+	<footer>
+		Public domain. Site by <a href="http://lynx.io/">Callum Macrae</a>
+	</footer>
+
+	<script src="assets/challenge.js"></script>
+	<!-- Social media -->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script type="text/javascript">
+		window.___gcfg = {lang: 'en-GB'};
+
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=251120905643";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-10431066-8']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</body>
+</html>
