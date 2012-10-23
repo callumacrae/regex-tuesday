@@ -10,8 +10,8 @@ var find = document.getElementById('find'),
 for (i = 0; i < testElements.length; i++) {
 	element = testElements[i];
 	cases[i] = {
-		input: element.textContent,
-		output: element.nextSibling.textContent
+		input: htmlToText(element.innerHTML),
+		output: htmlToText(element.nextSibling.innerHTML)
 	};
 
 	// Add the "it should've been X" element to each test case
@@ -90,7 +90,7 @@ function validateRegex(warnUser) {
 
 			if (replace) {
 				output = test.input.replace(regex, replace.value);
-				element.nextSibling.nextSibling.textContent = output;
+				element.nextSibling.nextSibling.innerHTML = textToHtml(output);
 				if (output === test.output) {
 					newClass = 'passed';
 					passes++;
@@ -118,4 +118,14 @@ function validateRegex(warnUser) {
 	}
 	
 	return false;
+}
+
+function htmlToText(html) {
+	return html.replace(/\<br(?: \/)?\>/g, '\n')
+		.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+}
+
+function textToHtml(text) {
+	return text.replace(/&/g, '&amp;').replace(/\</g, '&lt;').replace(/\>/g, '&gt;')
+		.replace(/\n/g, '<br>');
 }
