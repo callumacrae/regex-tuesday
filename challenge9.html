@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Regex Challenge - Week Nine</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet'>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+	<header>
+		<h1>Regex Tuesday Challenge - Week Nine</h1>
+		<nav>
+			<a href="./">&laquo; View all Challenges</a>
+		</nav>
+		<div id='social'>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="callumacrae" data-hashtags="regextuesday">Tweet</a>
+			<div class="g-plusone" data-size="medium"></div>
+			<div class="fb-like" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" style="top: -4px"></div>
+			<div style='display: inline-block; position: relative; margin-left: 30px; top: 3px;'>
+				<script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<p>Another MarkDown challenge! This challenge is simply to parse MarkDown links - so <code>[text](http://example.com)</code> would simply be replaced with the following HTML: <code>&lt;a href="http://example.com"&gt;text&lt;/a&gt;</code>.</p>
+		<p>Be careful with images. <code>![alt text](image location)</code> should be left alone, as it isn't a link.</p>
+		<p>If you don't want to write an expression for URLs too, you can see answers to the previous challenge on URLs <a href="http://www.reddit.com/r/javascript/comments/11ji6i/regex_challenge_7_domain_names/">on Reddit</a>.</p>
+		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
+
+		<p>
+			<input type="text" id="find" placeholder="/regexp? here/i">
+			<input type="text" id="replace" placeholder="Replace with">
+		</p>
+
+		<h3>Test cases (<span id='passed-count'>0</span>/17) <a id='permalink' class='button' href='./challenge8.html'>Permalink</a></h3>
+		<dl id='tests'> <!-- &lt;a href=""&gt;&lt;/a&gt; -->
+			<dt>[Basic link](http://example.com)</dt><dd>&lt;a href="http://example.com"&gt;Basic link&lt;/a&gt;</dd>
+			<dt>[Another](http://example.com/)</dt><dd>&lt;a href="http://example.com/"&gt;Another&lt;/a&gt;</dd>
+			<dt>Link: [lynx.io](http://lynx.io/)</dt><dd>Link: &lt;a href="http://lynx.io/"&gt;lynx.io&lt;/a&gt;</dd>
+			<dt>[Text](http://test.this-test.com/)</dt><dd>lt;a href="http://test.this-test.com/"&gt;Text&lt;/a&gt;</dd>
+			<dt>[Test!](http://this-test.test.com) hello</dt><dd>&lt;a href="http://this-test.test.com"&gt;Test!&lt;/a&gt; hello</dd>
+			<dt>l [l](http://TESTdomain.com) l</dt><dd>l &lt;a href="http://TESTdomain.com"&gt;l&lt;/a&gt; l</dd>
+			<dt>[number](http://0test.com/)</dt><dd>&lt;a href="http://0test.com/"&gt;number&lt;/a&gt;</dd>
+			<dt>[Invalid](invalid://example.com)</dt><dd>[Invalid](invalid://example.com)</dd>
+			<dt>[Invalid](mailto:nobody@example.com)</dt><dd>[Invalid](mailto:nobody@example.com)</dd>
+			<dt>[Invalid](javascript:alert())</dt><dd>[Invalid](javascript:alert())</dd>
+			<dt>[Invalid](http://test_ing.com)</dt><dd>[Invalid](http://test_ing.com)</dd>
+			<dt>[Invalid](http://inval.id,com)</dt><dd>[Invalid](http://inval.id,com)</dd>
+			<dt>![Image](http://example.com/cats.jpg)</dt><dd>![Image](http://example.com/cats.jpg)</dd>
+			<dt>![Other image](cats.jpg)</dt><dd>![Other image](cats.jpg)</dd>
+			<dt>l[Invalid MarkDown](http://example.com)</dt><dd>l[Invalid MarkDown](http://example.com)</dd>
+			<dt>[[Invalid MarkDown](http://example.com)</dt><dd>[[Invalid MarkDown](http://example.com)</dd>
+			<dt>[Invalid MarkDown](http://example.com)l</dt><dd>[Invalid MarkDown](http://example.com)l</dd>
+		</dl>
+	</section>
+
+	<footer>
+		Public domain. Site by <a href="http://lynx.io/">Callum Macrae</a>
+	</footer>
+
+	<script src="assets/challenge.js"></script>
+	<!-- Social media -->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script type="text/javascript">
+		window.___gcfg = {lang: 'en-GB'};
+
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=251120905643";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-10431066-8']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</body>
+</html>
