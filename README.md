@@ -1,4 +1,4 @@
-Repo for Regex Tuesday challenges.
+**Repo for Regex Tuesday challenges.**
 
 http://callumacrae.github.com/regex-tuesday/
 
