@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Regex Challenge - Week Ten</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet'>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+	<header>
+		<h1>Regex Tuesday Challenge - Week Ten</h1>
+		<nav>
+			<a href="./">&laquo; View all Challenges</a>
+		</nav>
+		<div id='social'>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="callumacrae" data-hashtags="regextuesday">Tweet</a>
+			<div class="g-plusone" data-size="medium"></div>
+			<div class="fb-like" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" style="top: -4px"></div>
+			<div style='display: inline-block; position: relative; margin-left: 30px; top: 3px;'>
+				<script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<p>We're into double figures! This challenge was <a href="http://www.reddit.com/user/jordanreiter">/u/jordanreiter</a>'s idea; the challenge is to turn a sentence into a number of "tokens" that would be suitable for something like a search engine to use a keywords. For example, "<em>don't tell Suzie Smith-Hopper that I broke Daniel's toy horse</em>" would be turned into "<em>don't,tell,Suzie,Smith-Hopper,that,I,broke,Daniel's,toy,horse</em>" and "<em>other "big name" items</em>" would be turned into "<em>other,big name, items</em>".</p>
+		<p>The four criteria are as follows:</p>
+		<ul>
+			<li>If words are in quotes, treat them as a single separate token: eg "<em>This "huge test" is pointless</em>" would be changed to "<em>this,huge test,is,pointless</em>". This applies to both single quotes and double quotes.</li>
+			<li>Hyphenated last names (such as "Smith-Hopper") should be a single token, but words with more hyphens, or hyphens at the beginning or end of the word, should have the hyphens stripped and be treated as separate tokens: "<em>Suzie Smith-Hopper test--hyphens</em>" should be changed to "<em>Suzie,Smith-Hopper,test,hyphens</em>".</li>
+			<li>Contractions should be treated as a single token; "<em>I can't do it</em>" would be changed to "<em>I,can't,do,it</em>".</li>
+			<li>Punctuation should be removed (but not hyphens and quotes as above); "<em>Too long; didn't read</em>" would turn into "<em>Too,long,didn't,read</em>".</li>
+		</ul>
+		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
+
+		<p>
+			<input type="text" id="find" placeholder="/regexp? here/i">
+			<input type="text" id="replace" placeholder="Replace with">
+		</p>
+
+		<h3>Test cases (<span id='passed-count'>0</span>/26) <a id='permalink' class='button' href='./challenge10.html'>Permalink</a></h3>
+		<dl id='tests'>
+			<dt>This is a test</dt><dd>This,is,a,test</dd>
+			<dt>This is another test</dt><dd>This,is,another,test</dd>
+			<dt>Excess spaces at end  </dt><dd>Excess,spaces,at,end</dd>
+			<dt>  Excess spaces at beginning</dt><dd>Excess,spaces,at,beginning</dd>
+			<dt>This "big test" is a test</dt><dd>This,big test,is,a,test</dd>
+			<dt>This "big test" is a 'big test'</dt><dd>This,big test,is,a,big test</dd>
+			<dt>"This entire thing is just a quote"</dt><dd>This entire thing is just a quote</dd>
+			<dt>"Almost this entire" thing "is just a quote"</dt><dd>Almost this entire,thing,is just a quote</dd>
+			<dt>Suzie Smith-Hopper</dt><dd>Suzie,Smith-Hopper</dd>
+			<dt>Suzie Smith-Hopper is test</dt><dd>Suzie,Smith-Hopper,is,test</dd>
+			<dt>Suzie Smith-Hopper is--test</dt><dd>Suzie,Smith-Hopper,is,test</dd>
+			<dt>This----is--test</dt><dd>This,is,test</dd>
+			<dt>This-----is-test</dt><dd>This,is-test</dd>
+			<dt>-Hello</dt><dd>Hello</dd>
+			<dt>Hello-</dt><dd>Hello</dd>
+			<dt>-Hello-</dt><dd>Hello</dd>
+			<dt>--Hello</dt><dd>Hello</dd>
+			<dt>Hello--</dt><dd>Hello</dd>
+			<dt>Don't say anything</dt><dd>Don't,say,anything</dd>
+			<dt>I can't think</dt><dd>I,can't,think</dd>
+			<dt>'Nope</dt><dd>Nope</dd>
+			<dt>This' is a 'test</dt><dd>This,is,a,test</dd>
+			<dt>don't tell Suzie Smith-Hopper that I broke Daniel's toy horse</dt><dd>don't,tell,Suzie,Smith-Hopper,that,I,broke,Daniel's,toy,horse</dd>
+			<dt>I can't see Suzie Smith-Hopper anywhere; can you?</dt><dd>I,can't,see,Suzie,Smith-Hopper,anywhere,can,you</dd>
+			<dt>Too long; didn't read</dt><dd>Too,long,didn't,read</dd>
+			<dt>Suzie Smith-Hopper's car was stolen</dt><dd>Suzie,Smith-Hopper's,car,was,stolen</dd>
+		</dl>
+	</section>
+
+	<footer>
+		Public domain. Site by <a href="http://lynx.io/">Callum Macrae</a>
+	</footer>
+
+	<script src="assets/challenge.js"></script>
+	<!-- Social media -->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script type="text/javascript">
+		window.___gcfg = {lang: 'en-GB'};
+
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=251120905643";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-10431066-8']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</body>
+</html>
