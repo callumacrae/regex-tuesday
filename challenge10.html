@@ -32,6 +32,7 @@
 			<li>Contractions should be treated as a single token; "<em>I can't do it</em>" would be changed to "<em>I,can't,do,it</em>".</li>
 			<li>Punctuation should be removed (but not hyphens and quotes as above); "<em>Too long; didn't read</em>" would turn into "<em>Too,long,didn't,read</em>".</li>
 		</ul>
+		<p>This challenge is <strong>challenging</strong>! It is certainly possible, though.</p>
 		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
 
 		<p>
@@ -39,32 +40,23 @@
 			<input type="text" id="replace" placeholder="Replace with">
 		</p>
 
-		<h3>Test cases (<span id='passed-count'>0</span>/26) <a id='permalink' class='button' href='./challenge10.html'>Permalink</a></h3>
+		<h3>Test cases (<span id='passed-count'>0</span>/17) <a id='permalink' class='button' href='./challenge10.html'>Permalink</a></h3>
 		<dl id='tests'>
 			<dt>This is a test</dt><dd>This,is,a,test</dd>
 			<dt>This is another test</dt><dd>This,is,another,test</dd>
-			<dt>Excess spaces at end  </dt><dd>Excess,spaces,at,end</dd>
-			<dt>  Excess spaces at beginning</dt><dd>Excess,spaces,at,beginning</dd>
 			<dt>This "big test" is a test</dt><dd>This,big test,is,a,test</dd>
 			<dt>This "big test" is a 'big test'</dt><dd>This,big test,is,a,big test</dd>
-			<dt>"This entire thing is just a quote"</dt><dd>This entire thing is just a quote</dd>
-			<dt>"Almost this entire" thing "is just a quote"</dt><dd>Almost this entire,thing,is just a quote</dd>
+			<dt>Almost "this entire" thing "is just a" quote</dt><dd>Almost,this entire,thing,is just a,quote</dd>
 			<dt>Suzie Smith-Hopper</dt><dd>Suzie,Smith-Hopper</dd>
 			<dt>Suzie Smith-Hopper is test</dt><dd>Suzie,Smith-Hopper,is,test</dd>
 			<dt>Suzie Smith-Hopper is--test</dt><dd>Suzie,Smith-Hopper,is,test</dd>
 			<dt>This----is--test</dt><dd>This,is,test</dd>
 			<dt>This-----is-test</dt><dd>This,is-test</dd>
-			<dt>-Hello</dt><dd>Hello</dd>
-			<dt>Hello-</dt><dd>Hello</dd>
-			<dt>-Hello-</dt><dd>Hello</dd>
-			<dt>--Hello</dt><dd>Hello</dd>
-			<dt>Hello--</dt><dd>Hello</dd>
 			<dt>Don't say anything</dt><dd>Don't,say,anything</dd>
 			<dt>I can't think</dt><dd>I,can't,think</dd>
-			<dt>'Nope</dt><dd>Nope</dd>
 			<dt>This' is a 'test</dt><dd>This,is,a,test</dd>
 			<dt>don't tell Suzie Smith-Hopper that I broke Daniel's toy horse</dt><dd>don't,tell,Suzie,Smith-Hopper,that,I,broke,Daniel's,toy,horse</dd>
-			<dt>I can't see Suzie Smith-Hopper anywhere; can you?</dt><dd>I,can't,see,Suzie,Smith-Hopper,anywhere,can,you</dd>
+			<dt>I can't see Suzie Smith-Hopper anywhere; can you</dt><dd>I,can't,see,Suzie,Smith-Hopper,anywhere,can,you</dd>
 			<dt>Too long; didn't read</dt><dd>Too,long,didn't,read</dd>
 			<dt>Suzie Smith-Hopper's car was stolen</dt><dd>Suzie,Smith-Hopper's,car,was,stolen</dd>
 		</dl>
