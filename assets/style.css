@@ -134,6 +134,7 @@ h3 {
 
 dt, dd {
 	margin-bottom: 20px;
+	white-space: pre-wrap;
 }
 
 dt {

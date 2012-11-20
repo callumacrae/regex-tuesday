@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Regex Challenge - Week Eleven</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet'>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+	<header>
+		<h1>Regex Tuesday Challenge - Week Twelve</h1>
+
+		<nav>
+			<a href="./">&laquo; View all Challenges</a>
+		</nav>
+
+		<div id='social'>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="callumacrae" data-hashtags="regextuesday">Tweet</a>
+			<div class="g-plusone" data-size="medium"></div>
+			<div class="fb-like" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" style="top: -4px"></div>
+			<div style='display: inline-block; position: relative; margin-left: 30px; top: 3px;'>
+				<script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<p>This weeks challenge is another slightly easier challenge. In it, you must fix the whitespace in a sentence or paragraph; before, there could be multiple spaces or tabs between two words. You must write a regex such that the final string has one space between words, and two spaces after full stops (hint; there will never be a tab following a full stop). New lines should be left alone.</p>
+		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
+
+		<p>
+			<input type="text" id="find" placeholder="/regexp? here/i">
+			<input type="text" id="replace" placeholder="Replace with">
+		</p>
+
+		<h3>Test cases (<span id='passed-count'>0</span>/12) <a id='permalink' class='button' href='./challenge12.html'>Permalink</a></h3>
+		<dl id='tests'>
+			<dt>This is already a valid sentence.</dt><dd>This is already a valid sentence.</dd>
+			<dt>Extra  spaces</dt><dd>Extra spaces</dd>
+			<dt>Multiple  extra  spaces</dt><dd>Multiple extra spaces</dd>
+			<dt>Tab	here</dt><dd>Tab here</dd>
+			<dt>Multiple	tabs	here</dt><dd>Multiple tabs here</dd>
+			<dt>Tab	and  spaces</dt><dd>Tab and spaces</dd>
+			<dt>Multiple		tabs</dt><dd>Multiple tabs</dd>
+			<dt>Mixed 	 whitespace</dt><dd>Mixed whitespace</dd>
+			<dt>Sentence. Sentence.</dt><dd>Sentence.  Sentence.</dd>
+			<dt>Sentence with words.   Sentence.</dt><dd>Sentence with words.  Sentence.</dd>
+			<dt>The  quick brown fox. 	Jumped.</dt><dd>The quick brown fox.  Jumped.</dd>
+			<dt>There  are 1.2 apples</dt><dd>There are 1.2 apples</dd>
+		</dl>
+	</section>
+
+	<footer>
+		Public domain. Site by <a href="http://lynx.io/">Callum Macrae</a>
+	</footer>
+
+	<script src="assets/challenge.js"></script>
+	<!-- Social media -->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script type="text/javascript">
+		window.___gcfg = {lang: 'en-GB'};
+
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=251120905643";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-10431066-8']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</body>
+</html>
