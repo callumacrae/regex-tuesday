@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Regex Challenge - Week Fifteen</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet'>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+	<header>
+		<h1>Regex Tuesday Challenge - Week Fifteen</h1>
+
+		<nav>
+			<a href="./">&laquo; View all Challenges</a>
+		</nav>
+
+		<div id='social'>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="callumacrae" data-hashtags="regextuesday">Tweet</a>
+			<div class="g-plusone" data-size="medium"></div>
+			<div class="fb-like" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" style="top: -4px"></div>
+			<div style='display: inline-block; position: relative; margin-left: 30px; top: 3px;'>
+				<script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<p>This challenge, also suggested by <a href="http://www.reddit.com/user/a-t-k">/u/a-t-k</a> (as was last weeks), is to match musical chord names such as Cmin, Bmaj. You should match both the long and short forms, and you can find an explanation of the different chords <a href="http://en.wikipedia.org/wiki/Chord_names_and_symbols_(popular_music)">here</a> (the examples section is probably the quickest to understand). For this challenge, we will assume that E♯, B♯, F♭ and C♭ don't exist. We will also only be matching sixth and seventh chords.</p>
+		<p>Note that the sharp sign: <code>♯</code> is not a hash sign: <code>#</code>.</p>
+		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
+
+		<p class='single-input'>
+			<textarea id="find" placeholder="/regexp? here/i"></textarea>
+		</p>
+
+		<h3>Test cases (<span id='passed-count'>0</span>/101) <a id='permalink' class='button' href='./challenge15.html'>Permalink</a></h3>
+		<dl id='tests'>
+			<dt>C</dt><dd>match</dd>
+			<dt>E</dt><dd>match</dd>
+			<dt>G</dt><dd>match</dd>
+			<dt>A</dt><dd>match</dd>
+			<dt>B♭</dt><dd>match</dd><br>
+			<dt>F♯</dt><dd>match</dd><br>
+			<dt>D</dt><dd>match</dd>
+			<dt>Cmaj</dt><dd>match</dd>
+			<dt>E♭M</dt><dd>match</dd><br>
+			<dt>Dmin</dt><dd>match</dd>
+			<dt>Fmin</dt><dd>match</dd>
+			<dt>Em</dt><dd>match</dd>
+			<dt>E♭m</dt><dd>match</dd><br>
+			<dt>E+</dt><dd>match</dd>
+			<dt>G+</dt><dd>match</dd>
+			<dt>B♭+</dt><dd>match</dd><br>
+			<dt>Aaug</dt><dd>match</dd>
+			<dt>B♭aug</dt><dd>match</dd><br>
+			<dt>C°</dt><dd>match</dd>
+			<dt>B♭°</dt><dd>match</dd><br>
+			<dt>Edim</dt><dd>match</dd>
+			<dt>Fdim</dt><dd>match</dd>
+			<dt>C6</dt><dd>match</dd>
+			<dt>Cmaj6</dt><dd>match</dd>
+			<dt>Dmin6</dt><dd>match</dd>
+			<dt>D7</dt><dd>match</dd>
+			<dt>Ddom7</dt><dd>match</dd>
+			<dt>Fmaj7</dt><dd>match</dd>
+			<dt>Gmin7</dt><dd>match</dd>
+			<dt>C♯6</dt><dd>match</dd><br>
+			<dt>FM6</dt><dd>match</dd>
+			<dt>Gm7</dt><dd>match</dd>
+			<dt>C♯m6</dt><dd>match</dd><br>
+			<dt>Dm6</dt><dd>match</dd>
+			<dt>F+7</dt><dd>match</dd>
+			<dt>B+7</dt><dd>match</dd>
+			<dt>E♭+7</dt><dd>match</dd><br>
+			<dt>Eaug7</dt><dd>match</dd>
+			<dt>Aaug7</dt><dd>match</dd>
+			<dt>G♭aug7</dt><dd>match</dd><br>
+			<dt>Cø</dt><dd>match</dd>
+			<dt>Dø</dt><dd>match</dd>
+			<dt>G♭ø</dt><dd>match</dd><br>
+			<dt>Eø7</dt><dd>match</dd>
+			<dt>Fø7</dt><dd>match</dd>
+			<dt>F♯ø7</dt><dd>match</dd><br>
+
+			<dt>Z</dt><dd>no match</dd>
+			<dt>H</dt><dd>no match</dd>
+			<dt>I</dt><dd>no match</dd>
+			<dt>F♭</dt><dd>no match</dd><br>
+			<dt>C♭</dt><dd>no match</dd><br>
+			<dt>E♯</dt><dd>no match</dd><br>
+			<dt>B♯</dt><dd>no match</dd><br>
+			<dt>Imaj</dt><dd>no match</dd>
+			<dt>ZM</dt><dd>no match</dd>
+			<dt>E♯M</dt><dd>no match</dd><br>
+			<dt>F♭maj</dt><dd>no match</dd><br>
+			<dt>Jmin</dt><dd>no match</dd>
+			<dt>E♯m</dt><dd>no match</dd><br>
+			<dt>F♭aug</dt><dd>no match</dd><br>
+			<dt>J+</dt><dd>no match</dd>
+			<dt>E♯+</dt><dd>no match</dd><br>
+			<dt>E♯dim</dt><dd>no match</dd><br>
+			<dt>C♭°</dt><dd>no match</dd><br>
+			<dt>B♯6</dt><dd>no match</dd><br>
+			<dt>H6</dt><dd>no match</dd>
+			<dt>Z7</dt><dd>no match</dd>
+			<dt>C5</dt><dd>no match</dd>
+			<dt>A3</dt><dd>no match</dd>
+			<dt>Ddom8</dt><dd>no match</dd>
+			<dt>F9</dt><dd>no match</dd>
+			<dt>B2</dt><dd>no match</dd>
+			<dt>Bm♯6</dt><dd>no match</dd><br>
+			<dt>HM6</dt><dd>no match</dd>
+			<dt>Zm7</dt><dd>no match</dd>
+			<dt>CMaj5</dt><dd>no match</dd>
+			<dt>Am3</dt><dd>no match</dd>
+			<dt>DM8</dt><dd>no match</dd>
+			<dt>Fmin9</dt><dd>no match</dd>
+			<dt>BM2</dt><dd>no match</dd>
+			<dt>J+7</dt><dd>no match</dd>
+			<dt>E♯+7</dt><dd>no match</dd><br>
+			<dt>Jaug7</dt><dd>no match</dd>
+			<dt>E♯aug7</dt><dd>no match</dd><br>
+			<dt>Cdom6</dt><dd>no match</dd>
+			<dt>Ddom6</dt><dd>no match</dd>
+			<dt>F♭ø</dt><dd>no match</dd><br>
+			<dt>Fø6</dt><dd>no match</dd>
+			<dt>Fø8</dt><dd>no match</dd>
+		</dl>
+	</section>
+
+	<footer>
+		Public domain. Site by <a href="http://lynx.io/">Callum Macrae</a>
+	</footer>
+
+	<script src="assets/challenge.js"></script>
+	<!-- Social media -->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script type="text/javascript">
+		window.___gcfg = {lang: 'en-GB'};
+
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=251120905643";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-10431066-8']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</body>
+</html>
