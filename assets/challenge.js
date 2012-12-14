@@ -1,4 +1,5 @@
 var find = document.getElementById('find'),
+	hidePassing = document.querySelectorAll('#hide_passing input')[0],
 	replace = document.getElementById('replace'),
 	passedCount = document.getElementById('passed-count'),
 	testElements = document.getElementById('tests').getElementsByTagName('dt'),
@@ -48,10 +49,21 @@ if (find.value) {
 	validateRegex(true);
 }
 
+// Handle "Hide passing tests"
+hidePassing.addEventListener('change', function () {
+	document.body.classList.toggle('hide_passing');
+	window.localStorage.hidePassing = this.checked;
+});
+
+if (window.localStorage.hidePassing === 'true') {
+	document.body.classList.add('hide_passing');
+	hidePassing.checked = true;
+}
+
 function validateRegex(warnUser) {
 	var regex = find.value,
 		url = location.origin + location.pathname,
-		passes = 0,
+		passes = 0, fails = 0,
 		element, i, newClass, output, test;
 
 	url += '?find=' + encodeURIComponent(find.value);
@@ -96,6 +108,7 @@ function validateRegex(warnUser) {
 					passes++;
 				} else {
 					newClass = 'failed showfail';
+					fails++;
 				}
 			} else {
 				if (regex.test(test.input) === (test.output === 'match')) {
@@ -111,6 +124,12 @@ function validateRegex(warnUser) {
 
 		// Let the user know how many tests they passed
 		passedCount.textContent = passes;
+
+		if (fails === 0) {
+			document.body.classList.add('all_passing');
+		} else {
+			document.body.classList.remove('all_passing');
+		}
 
 		return true;
 	} else if (warnUser) {

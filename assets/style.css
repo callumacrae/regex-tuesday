@@ -105,7 +105,7 @@ section h3 {
 	border-right: 1px solid #EDEDED;
 }
 
-input, dt, dd, textarea {
+input:not([type="checkbox"]), dt, dd, textarea, #congratulations {
 	padding: 10px;
 	margin: 0 8px;
 	width: 260px;
@@ -128,8 +128,17 @@ input.invalid, textarea.invalid {
 	border-color: #D14B4B;
 }
 
+.hide_passing .passed {
+	display: none;
+}
+
 h3 {
 	margin-left: 8px;
+}
+
+h3 #hide_passing {
+	font-size: 10pt;
+	float: right;
 }
 
 dt, dd {
@@ -180,3 +189,13 @@ footer {
 	text-align: center;
 	color: #A3A3A3;
 }
+
+#congratulations {
+	width: 560px;
+	display: none;
+}
+
+.hide_passing.all_passing #congratulations {
+	display: block;
+}
+
