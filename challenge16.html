@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Regex Challenge - Week Sixteen</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet'>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+	<header>
+		<h1>Regex Tuesday Challenge - Week Sixteen</h1>
+
+		<nav>
+			<a href="./">&laquo; View all Challenges</a>
+		</nav>
+
+		<div id='social'>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="callumacrae" data-hashtags="regextuesday">Tweet</a>
+			<div class="g-plusone" data-size="medium"></div>
+			<div class="fb-like" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" style="top: -4px"></div>
+			<div style='display: inline-block; position: relative; margin-left: 30px; top: 3px;'>
+				<script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<p>This is the second part of <a href="challenge14.html">Challenge #14</a>, Chemical Element Golf. This is pretty much the same thing, but instead of matching elements with atomic numbers up to 50, you must match the elements with chemical numbers of above 50 (there are more than 50 of them this time, too).</p>
+		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
+
+		<p class='single-input'>
+			<textarea id="find" placeholder="/regexp? here/i"></textarea>
+		</p>
+
+		<h3>Test cases (<span id='passed-count'>0</span>/135) <a id='permalink' class='button' href='./challenge16.html'>Permalink</a> <label id="hide_passing"><input type="checkbox"> Hide passing tests</label></h3>
+		<dl id='tests'>
+			<dt>Sn</dt><dd>match</dd>
+			<dt>Sb</dt><dd>match</dd>
+			<dt>Te</dt><dd>match</dd>
+			<dt>I</dt><dd>match</dd>
+			<dt>Xe</dt><dd>match</dd>
+			<dt>Cs</dt><dd>match</dd>
+			<dt>Ba</dt><dd>match</dd>
+			<dt>La</dt><dd>match</dd>
+			<dt>Ce</dt><dd>match</dd>
+			<dt>Pr</dt><dd>match</dd>
+			<dt>Nd</dt><dd>match</dd>
+			<dt>Pm</dt><dd>match</dd>
+			<dt>Sm</dt><dd>match</dd>
+			<dt>Eu</dt><dd>match</dd>
+			<dt>Gd</dt><dd>match</dd>
+			<dt>Tb</dt><dd>match</dd>
+			<dt>Dy</dt><dd>match</dd>
+			<dt>Ho</dt><dd>match</dd>
+			<dt>Er</dt><dd>match</dd>
+			<dt>Tm</dt><dd>match</dd>
+			<dt>Yb</dt><dd>match</dd>
+			<dt>Lu</dt><dd>match</dd>
+			<dt>Hf</dt><dd>match</dd>
+			<dt>Ta</dt><dd>match</dd>
+			<dt>W</dt><dd>match</dd>
+			<dt>Re</dt><dd>match</dd>
+			<dt>Os</dt><dd>match</dd>
+			<dt>Ir</dt><dd>match</dd>
+			<dt>Pt</dt><dd>match</dd>
+			<dt>Au</dt><dd>match</dd>
+			<dt>Hg</dt><dd>match</dd>
+			<dt>Tl</dt><dd>match</dd>
+			<dt>Pb</dt><dd>match</dd>
+			<dt>Bi</dt><dd>match</dd>
+			<dt>Po</dt><dd>match</dd>
+			<dt>At</dt><dd>match</dd>
+			<dt>Rn</dt><dd>match</dd>
+			<dt>Fr</dt><dd>match</dd>
+			<dt>Ra</dt><dd>match</dd>
+			<dt>Ac</dt><dd>match</dd>
+			<dt>Th</dt><dd>match</dd>
+			<dt>Pa</dt><dd>match</dd>
+			<dt>U</dt><dd>match</dd>
+			<dt>Np</dt><dd>match</dd>
+			<dt>Pu</dt><dd>match</dd>
+			<dt>Am</dt><dd>match</dd>
+			<dt>Cm</dt><dd>match</dd>
+			<dt>Bk</dt><dd>match</dd>
+			<dt>Cf</dt><dd>match</dd>
+			<dt>Es</dt><dd>match</dd>
+			<dt>Fm</dt><dd>match</dd>
+			<dt>Md</dt><dd>match</dd>
+			<dt>No</dt><dd>match</dd>
+			<dt>Lr</dt><dd>match</dd>
+
+			<dt>A</dt><dd>no match</dd>
+			<dt>Ab</dt><dd>no match</dd>
+			<dt>Ad</dt><dd>no match</dd>
+			<dt>B</dt><dd>no match</dd>
+			<dt>Bf</dt><dd>no match</dd>
+			<dt>Bh</dt><dd>no match</dd>
+			<dt>C</dt><dd>no match</dd>
+			<dt>Ca</dt><dd>no match</dd>
+			<dt>Cu</dt><dd>no match</dd>
+			<dt>Ck</dt><dd>no match</dd>
+			<dt>D</dt><dd>no match</dd>
+			<dt>Du</dt><dd>no match</dd>
+			<dt>Dud</dt><dd>no match</dd>
+			<dt>E</dt><dd>no match</dd>
+			<dt>Ef</dt><dd>no match</dd>
+			<dt>Egg</dt><dd>no match</dd>
+			<dt>F</dt><dd>no match</dd>
+			<dt>Fp</dt><dd>no match</dd>
+			<dt>Fk</dt><dd>no match</dd>
+			<dt>G</dt><dd>no match</dd>
+			<dt>Gg</dt><dd>no match</dd>
+			<dt>Gi</dt><dd>no match</dd>
+			<dt>H</dt><dd>no match</dd>
+			<dt>Hk</dt><dd>no match</dd>
+			<dt>Hl</dt><dd>no match</dd>
+			<dt>Hn</dt><dd>no match</dd>
+			<dt>J</dt><dd>no match</dd>
+			<dt>Ja</dt><dd>no match</dd>
+			<dt>Js</dt><dd>no match</dd>
+			<dt>Jz</dt><dd>no match</dd>
+			<dt>K</dt><dd>no match</dd>
+			<dt>Kf</dt><dd>no match</dd>
+			<dt>Km</dt><dd>no match</dd>
+			<dt>Ks</dt><dd>no match</dd>
+			<dt>L</dt><dd>no match</dd>
+			<dt>Lm</dt><dd>no match</dd>
+			<dt>Ln</dt><dd>no match</dd>
+			<dt>M</dt><dd>no match</dd>
+			<dt>Ma</dt><dd>no match</dd>
+			<dt>Me</dt><dd>no match</dd>
+			<dt>Ml</dt><dd>no match</dd>
+			<dt>N</dt><dd>no match</dd>
+			<dt>Na</dt><dd>no match</dd>
+			<dt>Nf</dt><dd>no match</dd>
+			<dt>O</dt><dd>no match</dd>
+			<dt>Of</dt><dd>no match</dd>
+			<dt>Oof</dt><dd>no match</dd>
+			<dt>P</dt><dd>no match</dd>
+			<dt>Ph</dt><dd>no match</dd>
+			<dt>Py</dt><dd>no match</dd>
+			<dt>Q</dt><dd>no match</dd>
+			<dt>Qa</dt><dd>no match</dd>
+			<dt>Qm</dt><dd>no match</dd>
+			<dt>R</dt><dd>no match</dd>
+			<dt>Rf</dt><dd>no match</dd>
+			<dt>S</dt><dd>no match</dd>
+			<dt>Sa</dt><dd>no match</dd>
+			<dt>Sr</dt><dd>no match</dd>
+			<dt>Ss</dt><dd>no match</dd>
+			<dt>T</dt><dd>no match</dd>
+			<dt>To</dt><dd>no match</dd>
+			<dt>Ts</dt><dd>no match</dd>
+			<dt>Uc</dt><dd>no match</dd>
+			<dt>Ur</dt><dd>no match</dd>
+			<dt>Uu</dt><dd>no match</dd>
+			<dt>Uuc</dt><dd>no match</dd>
+			<dt>Uun</dt><dd>no match</dd>
+			<dt>Uum</dt><dd>no match</dd>
+			<dt>V</dt><dd>no match</dd>
+			<dt>Vv</dt><dd>no match</dd>
+			<dt>Vx</dt><dd>no match</dd>
+			<dt>X</dt><dd>no match</dd>
+			<dt>Xr</dt><dd>no match</dd>
+			<dt>Xj</dt><dd>no match</dd>
+			<dt>Y</dt><dd>no match</dd>
+			<dt>Ye</dt><dd>no match</dd>
+			<dt>Yea</dt><dd>no match</dd>
+			<dt>Z</dt><dd>no match</dd>
+			<dt>Za</dt><dd>no match</dd>
+			<dt>Zm</dt><dd>no match</dd>
+			<dt>Zz</dt><dd>no match</dd>
+		</dl>
+		<div id="congratulations">Congratulations, your regex passes all the test cases! Remember to share this challenge.</div>
+	</section>
+
+	<footer>
+		Public domain. Site by <a href="http://lynx.io/">Callum Macrae</a>
+	</footer>
+
+	<script src="assets/challenge.js"></script>
+	<!-- Social media -->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script type="text/javascript">
+		window.___gcfg = {lang: 'en-GB'};
+
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=251120905643";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-10431066-8']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</body>
+</html>
