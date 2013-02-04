@@ -15,7 +15,7 @@ for (i = dates.length - 1; i >= 0; i--) {
 		dates[i].textContent = 'Yesterday';
 	} else if (diff <= 7) {
 		dates[i].textContent = diff + ' days ago';
-	} else if (diff < 31) {
+	} else if (diff < 62) {
 		dates[i].textContent = Math.ceil(diff / 7) + ' weeks ago';
 	}
-};
+}
