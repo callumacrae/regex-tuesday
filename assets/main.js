@@ -1,12 +1,11 @@
 var dates = document.getElementsByTagName('date'),
-	i;
+	date, diff, i;
 
 // Prettify the dates
 for (i = dates.length - 1; i >= 0; i--) {
-	var date = dates[i].textContent.split('/'),
-	    diff;
-
+	date = dates[i].textContent.split('/');
 	date = new Date(date[2], date[1] - 1, date[0]);
+
 	diff = Math.floor((Date.now() - date.getTime()) / 86400000);
 
 	if (diff === 0) {
