@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Regex Challenge - Week Twenty</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400' rel='stylesheet'>
+	<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+	<header>
+		<h1>Regex Tuesday Challenge - Week Twenty</h1>
+
+		<nav>
+			<a href="./">&laquo; View all Challenges</a>
+		</nav>
+
+		<div id='social'>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="callumacrae" data-hashtags="regextuesday">Tweet</a>
+			<div class="g-plusone" data-size="medium"></div>
+			<div class="fb-like" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" style="top: -4px"></div>
+			<div style='display: inline-block; position: relative; margin-left: 30px; top: 3px;'>
+				<script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+			</div>
+		</div>
+	</header>
+
+	<section>
+		<p>Challenge number twenty is to match valid chess move notation using the algebraic notation (other challenges in the future will be for other notations), as explained by <a href="http://www.chesshouse.com/how_to_read_and_write_chess_notation_a/166.htm">this article</a>. You don't need to worry about the moves being valid, which is not possible in regex alone. Don't worry about analysis (!!, !, etc.)</p>
+		<p>To test a regular expression on the test cases below, type it into the text input. Each test case will be marked as passed or failed respectively - you are aiming to get as many test cases as you can to pass. Note that JavaScript must be enabled for this feature to work. The regex engine used is the JavaScript regex engine; it is similar to PCRE, but with a few differences.</p>
+
+		<p class='single-input'>
+			<textarea id="find" placeholder="/regexp? here/i"></textarea>
+		</p>
+
+		<h3>Test cases (<span id='passed-count'>0</span>/103) <a id='permalink' class='button' href='./challenge20.html'>Permalink</a> <label id="hide_passing"><input type="checkbox"> Hide passing tests</label></h3>
+		<dl id='tests'>
+			<dt>e4</dt><dd>match</dd>
+			<dt>a8</dt><dd>match</dd>
+			<dt>g5</dt><dd>match</dd>
+			<dt>h7</dt><dd>match</dd>
+			<dt>a1</dt><dd>match</dd>
+			<dt>Kd2</dt><dd>match</dd>
+			<dt>Kg6</dt><dd>match</dd>
+			<dt>Qh4</dt><dd>match</dd>
+			<dt>Qe2</dt><dd>match</dd>
+			<dt>Qb7</dt><dd>match</dd>
+			<dt>Nf2</dt><dd>match</dd>
+			<dt>Nc6</dt><dd>match</dd>
+			<dt>Be4</dt><dd>match</dd>
+			<dt>Bf3</dt><dd>match</dd>
+			<dt>Bb2</dt><dd>match</dd>
+			<dt>Ra1</dt><dd>match</dd>
+			<dt>Rc3</dt><dd>match</dd>
+			<dt>Rh8</dt><dd>match</dd>
+			<dt>0-0</dt><dd>match</dd>
+			<dt>0-0-0</dt><dd>match</dd>
+			<dt>exd5</dt><dd>match</dd>
+			<dt>axb7</dt><dd>match</dd>
+			<dt>exd2</dt><dd>match</dd>
+			<dt>Bxc6</dt><dd>match</dd>
+			<dt>Bxa4</dt><dd>match</dd>
+			<dt>Qxe2</dt><dd>match</dd>
+			<dt>Qxb7</dt><dd>match</dd>
+			<dt>Nxf2</dt><dd>match</dd>
+			<dt>Nxb2</dt><dd>match</dd>
+			<dt>Bxb2</dt><dd>match</dd>
+			<dt>Rxh8</dt><dd>match</dd>
+			<dt>Rxc3</dt><dd>match</dd>
+			<dt>exd5(ep)</dt><dd>match</dd>
+			<dt>exd2(ep)</dt><dd>match</dd>
+			<dt>a1=Q</dt><dd>match</dd>
+			<dt>d1=Q</dt><dd>match</dd>
+			<dt>f8=Q</dt><dd>match</dd>
+			<dt>e8=Q</dt><dd>match</dd>
+			<dt>a1=N</dt><dd>match</dd>
+			<dt>b8=B</dt><dd>match</dd>
+			<dt>f1=R</dt><dd>match</dd>
+			<dt>d8=Q</dt><dd>match</dd>
+			<dt>bxc1=Q</dt><dd>match</dd>
+			<dt>exd1=Q</dt><dd>match</dd>
+			<dt>Raxc1</dt><dd>match</dd>
+			<dt>Rfxd2</dt><dd>match</dd>
+			<dt>R2xc1</dt><dd>match</dd>
+			<dt>R5xd2</dt><dd>match</dd>
+			<dt>Bxc6+</dt><dd>match</dd>
+			<dt>Rxh8+</dt><dd>match</dd>
+			<dt>Rh8+</dt><dd>match</dd>
+			<dt>Bxb2+</dt><dd>match</dd>
+			<dt>Rxc3++</dt><dd>match</dd>
+			<dt>Bxc6++</dt><dd>match</dd>
+			<dt>d8=Q++</dt><dd>match</dd>
+
+			<dt>2</dt><dd>no match</dd>
+			<dt>b</dt><dd>no match</dd>
+			<dt>i2</dt><dd>no match</dd>
+			<dt>a9</dt><dd>no match</dd>
+			<dt>5d</dt><dd>no match</dd>
+			<dt>K2</dt><dd>no match</dd>
+			<dt>Ki6</dt><dd>no match</dd>
+			<dt>Kf9</dt><dd>no match</dd>
+			<dt>Qp3</dt><dd>no match</dd>
+			<dt>Qd9</dt><dd>no match</dd>
+			<dt>Q3</dt><dd>no match</dd>
+			<dt>N</dt><dd>no match</dd>
+			<dt>Nz9</dt><dd>no match</dd>
+			<dt>Na10</dt><dd>no match</dd>
+			<dt>B2</dt><dd>no match (watch case)</dd>
+			<dt>Bb</dt><dd>no match</dd>
+			<dt>Bi4</dt><dd>no match</dd>
+			<dt>Ri5</dt><dd>no match</dd>
+			<dt>Ra9</dt><dd>no match</dd>
+			<dt>Sa2</dt><dd>no match</dd>
+			<dt>Zf3</dt><dd>no match</dd>
+			<dt>Jj2</dt><dd>no match</dd>
+			<dt>1-1</dt><dd>no match</dd>
+			<dt>0</dt><dd>no match</dd>
+			<dt>2-1</dt><dd>no match</dd>
+			<dt>0-1</dt><dd>no match</dd>
+			<dt>0-0-1</dt><dd>no match</dd>
+			<dt>0-0-0-0</dt><dd>no match</dd>
+			<dt>0--0</dt><dd>no match</dd>
+			<dt>bxa9</dt><dd>no match</dd>
+			<dt>hxi2</dt><dd>no match</dd>
+			<dt>Kxf9</dt><dd>no match</dd>
+			<dt>Qxp3</dt><dd>no match</dd>
+			<dt>Nxz9</dt><dd>no match</dd>
+			<dt>Bxi4</dt><dd>no match</dd>
+			<dt>Rxi5</dt><dd>no match</dd>
+			<dt>a1=</dt><dd>no match</dd>
+			<dt>a2=Q</dt><dd>no match</dd>
+			<dt>b4=N</dt><dd>no match</dd>
+			<dt>d1=S</dt><dd>no match</dd>
+			<dt>d5=G</dt><dd>no match</dd>
+			<dt>exd5=G</dt><dd>no match</dd>
+			<dt>exd1=S</dt><dd>no match</dd>
+			<dt>bxa1=</dt><dd>no match</dd>
+			<dt>Rdxd2</dt><dd>no match</dd>
+			<dt>Rexe2</dt><dd>no match</dd>
+			<dt>R2xe2</dt><dd>no match</dd>
+			<dt>Bxi4++</dt><dd>no match</dd>
+		</dl>
+		<div id="congratulations">Congratulations, your regex passes all the test cases! Remember to share this challenge.</div>
+	</section>
+
+	<footer>
+		Public domain. Site by <a href="http://lynx.io/">Callum Macrae</a>
+	</footer>
+
+	<script src="assets/challenge.js"></script>
+	<!-- Social media -->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script type="text/javascript">
+		window.___gcfg = {lang: 'en-GB'};
+
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=251120905643";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-10431066-8']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</body>
+</html>
